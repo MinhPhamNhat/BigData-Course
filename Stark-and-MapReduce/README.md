@@ -1,1 +1,1 @@
-# Stark and MapReduce
+# Spark and MapReduce
