@@ -51,11 +51,13 @@ The main differences between Apache Spark and Hadoop MapReduce are:
 * Ease of use
 * Data processing
 * Security
+
 However, there are also a few similarities between Spark and MapReduce—not surprising, since Spark uses MapReduce as its foundation. The points of similarity between Spark and MapReduce include:
 
 * Cost
 * Compatibility
 * Failure tolerance
+
 Below, we'll go into more detail about the differences between Spark and MapReduce (and the similarities) in each section.
 
 ## Spark vs MapReduce: Performance
