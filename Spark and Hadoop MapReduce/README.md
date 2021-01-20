@@ -69,4 +69,4 @@ MapReduce, on the other hand, kills its processes as soon as a job is done, so i
 
 Spark has the upper hand for iterative computations that need to pass over the same data many times. But when it comes to one-pass ETL-like jobs—for example, data transformation or data integration—then that's exactly what MapReduce was designed for.
 
-</b> Bottom line:</b> Spark performs better when all the data fits in memory, especially on dedicated clusters. Hadoop MapReduce is designed for data that doesn’t fit in memory, and can run well alongside other services.
+<b> Bottom line:</b> Spark performs better when all the data fits in memory, especially on dedicated clusters. Hadoop MapReduce is designed for data that doesn’t fit in memory, and can run well alongside other services.
