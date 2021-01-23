@@ -17,8 +17,14 @@ Hadoop là một Apache framework mã nguồn mở cho phép phát triển các 
 <img src="https://topdev.vn/blog/wp-content/uploads/2019/06/hadoop_architecture.jpg">
 
 ## MapReduce
-MapReduce được thiết kế bởi Google như 1 mô hình lập trình xử lý tập dữ liệu lớn song song, thuật toán được phân tán trên 1 cụm. Mặc dù, MapReduce ban đầu là công nghệ độc quyền của Google, nó đã trở thành thuật ngữ tổng quát hóa trong thời gian gần đây.
+MapReduce bắt nguồn từ Google. Các bạn có thể tham khảo mô hình đơn giản của MapReduce qua bài báo “MapReduce: Simplified Data Processing on Large Clusters”.
 
-MapReduce gồm các thủ tục: 1 Map() và 1 Reduce(). Thủ tục Map() lọc (filter) và phân loại (sort) trên dữ liệu trong khi thủ tục Reduce() thực hiện tổng hợp dữ liệu. Mô hình này dựa tre7m các khái niệm biến đổi của bản đồ và reduce các chức năng trong lập trình hướng chức năng. Thư viện thủ tục Map() và Reduce() được viết bằng nhiều ngôn ngữ. Cài đặt miễn phí, phổ biến nhất của MapReduce là Apache Hadoop.
+MapReduce được chia thành hàm là Map và Reduce. Những hàm này được định nghĩa bởi người dùng và là hai giai đoạn liên tiếp trong quá trình xử lý dữ liệu.
+
++ Map nhận input là tập các cặp khóa/giá trị và output là tập các cặp khóa/giá trị trung gian và ghi xuống đĩa cứng và thông báo cho Reduce nhận dữ liệu đọc.
+
++ Reduce sẽ nhận khóa trung gian I và tập các giá trị ứng với khóa đó, ghép nối chúng lại để tạo thành một tập khóa nhỏ hơn. Các cặp khóa/giá trị trung gian sẽ  được đưa vào cho hàm reduce thông qua một con trỏ vị trí (iterator). Điều này cho phép ta có thể quản lý một lượng lớn danh sách các giá trị để phù hợp với bộ nhớ.
+
+Thực chất giữa bước map và reduce còn có một bước phụ mà bước này thực hiện song song với bước reduce đó là shuffle. Tức là sau khi map thực hiện xong toàn bộ công việc của mình,  output của map được đặt rải rác trên các cluster khác nhau nên shuffle sẽ làm nhiệm vụ thu thập các cặp khóa-giá trị trung gian do map sinh ra mà có cùng khóa để chuyển qua cho reduce thực hiện tiếp công việc của mình.
 
 <img src="https://expressmagazine.net/sites/default/files/imagesArticle/mapreduce_work_structure.png">
