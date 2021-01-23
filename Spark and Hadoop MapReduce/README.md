@@ -28,3 +28,20 @@ MapReduce được chia thành hàm là Map và Reduce. Những hàm này đư�
 Thực chất giữa bước map và reduce còn có một bước phụ mà bước này thực hiện song song với bước reduce đó là shuffle. Tức là sau khi map thực hiện xong toàn bộ công việc của mình,  output của map được đặt rải rác trên các cluster khác nhau nên shuffle sẽ làm nhiệm vụ thu thập các cặp khóa-giá trị trung gian do map sinh ra mà có cùng khóa để chuyển qua cho reduce thực hiện tiếp công việc của mình.
 
 <img src="https://expressmagazine.net/sites/default/files/imagesArticle/mapreduce_work_structure.png">
+
+## Kiến trúc
+### Hadoop
+Để bắt đầu, tất cả các tệp được truyền vào HDFS được chia thành các khối. Mỗi khối được sao chép một số lần xác định trên toàn cụm dựa trên kích thước khối và hệ số sao chép được định cấu hình. Thông tin đó được truyền đến NameNode, theo dõi mọi thứ trên toàn cụm. NameNode gán các tệp cho một số nút dữ liệu mà sau đó chúng được ghi. Tính sẵn sàng cao đã được  triển khai vào năm 2012 , cho phép NameNode chuyển đổi dự phòng sang Node dự phòng để theo dõi tất cả các tệp trên một cụm.
+
+Thuật toán MapReduce nằm trên HDFS và bao gồm một JobTracker. Khi một ứng dụng được viết bằng một trong các ngôn ngữ, Hadoop chấp nhận Trình theo dõi công việc, chọn nó và phân bổ công việc (có thể bao gồm mọi thứ từ đếm từ và làm sạch tệp nhật ký, để chạy truy vấn HiveQL trên đầu dữ liệu được lưu trữ trong kho Hive ) để TaskTrackers lắng nghe trên các nút khác.
+
+YARN phân bổ các tài nguyên mà JobTracker tạo ra và giám sát chúng, di chuyển các quy trình xung quanh để có hiệu quả cao hơn. Tất cả các kết quả từ giai đoạn MapReduce sau đó được tổng hợp và ghi lại vào đĩa trong HDFS.
+
+### Spark
+Tay cầm Spark hoạt động theo cách tương tự như Hadoop, ngoại trừ việc tính toán được thực hiện trong bộ nhớ và được lưu trữ ở đó cho đến khi người dùng chủ động duy trì chúng. Ban đầu, Spark đọc từ một tệp trên HDFS, S3 hoặc một filestore khác, thành một cơ chế được thiết lập có tên là SparkContext. Trong bối cảnh đó, Spark tạo ra một cấu trúc gọi là RDD hoặc Bộ dữ liệu phân tán có khả năng phục hồi, đại diện cho một tập hợp các yếu tố bất biến có thể được vận hành song song.
+
+Khi RDD và các hành động liên quan đang được tạo, Spark cũng tạo ra một DAG, hoặc đồ thị theo chu kỳ có hướng, để trực quan hóa thứ tự các hoạt động và mối quan hệ giữa các hoạt động trong DAG. Mỗi DAG có các giai đoạn và các bước; theo cách này, nó tương tự như một kế hoạch giải thích trong SQL.  
+
+Bạn có thể thực hiện các phép biến đổi, các bước trung gian, hành động hoặc các bước cuối cùng trên RDD. Kết quả của một chuyển đổi đã cho đi vào DAG nhưng không tồn tại trên đĩa, nhưng kết quả của một hành động vẫn tồn tại tất cả dữ liệu trong bộ nhớ vào đĩa.
+
+Một bản tóm tắt mới trong Spark là DataFrames, được phát triển trong Spark 2.0 như một giao diện đồng hành với RDD. Hai cái này cực kỳ giống nhau, nhưng DataFrames sắp xếp dữ liệu thành các cột được đặt tên, tương tự như các gói gấu trúc hoặc R của Python. Điều này làm cho chúng thân thiện với người dùng hơn RDD, vốn không có bộ tham chiếu tiêu đề cấp cột tương tự. SparkQuery cũng cho phép người dùng truy vấn DataFrames giống như các bảng SQL trong các kho dữ liệu quan hệ.  
