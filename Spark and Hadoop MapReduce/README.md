@@ -45,3 +45,14 @@ Khi RDD và các hành động liên quan đang được tạo, Spark cũng tạ
 Bạn có thể thực hiện các phép biến đổi, các bước trung gian, hành động hoặc các bước cuối cùng trên RDD. Kết quả của một chuyển đổi đã cho đi vào DAG nhưng không tồn tại trên đĩa, nhưng kết quả của một hành động vẫn tồn tại tất cả dữ liệu trong bộ nhớ vào đĩa.
 
 Một bản tóm tắt mới trong Spark là DataFrames, được phát triển trong Spark 2.0 như một giao diện đồng hành với RDD. Hai cái này cực kỳ giống nhau, nhưng DataFrames sắp xếp dữ liệu thành các cột được đặt tên, tương tự như các gói gấu trúc hoặc R của Python. Điều này làm cho chúng thân thiện với người dùng hơn RDD, vốn không có bộ tham chiếu tiêu đề cấp cột tương tự. SparkQuery cũng cho phép người dùng truy vấn DataFrames giống như các bảng SQL trong các kho dữ liệu quan hệ.  
+
+## Hiệu suất
+Về tốc độ xử lý thì Spark nhanh hơn Hadoop. Spark được cho là nhanh hơn Hadoop gấp 100 lần khi chạy trên RAM, và gấp 10 lần khi chạy trên ổ cứng. Hơn nữa, người ta cho rằng Spark sắp xếp (sort) 100TB dữ liệu nhanh gấp 3 lần Hadoop trong khi sử dụng ít hơn 10 lần số lượng hệ thống máy tính.
+
+<img src="https://images.viblo.asia/de17071c-f13c-41c9-80ad-b39401d16cc2.jpg">
+
+Sở dĩ Spark nhanh là vì nó xử lý mọi thứ ở RAM. Nhờ xử lý ở bộ nhớ nên Spark cung cấp các phân tích dữ liệu thời gian thực cho các chiến dịch quảng cáo, machine learning (học máy), hay các trang web mạng xã hội.
+
+Tuy nhiên, khi Spark làm việc cùng các dịch vụ chia sẻ khác chạy trên YARN thì hiệu năng có thể giảm xuống. Điều đó có thể dẫn đến rò rỉ bộ nhớ trên RAM. Hadoop thì khác, nó dễ dàng xử lý vấn đề này. Nếu người dùng có khuynh hướng xử lý hàng loạt (batch process) thì Hadoop lại hiệu quả hơn Spark.
+
+Tóm lại ở yếu tố hiệu năng, Spark và Hadoop có cách xử lý dữ liệu khác nhau. Việc lựa chọn framework nào phụ thuộc yêu cầu cụ thể từng dự án.
