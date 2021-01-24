@@ -46,11 +46,11 @@ Thuật toán MapReduce nằm trên HDFS và bao gồm một JobTracker. Khi m�
 YARN phân bổ các tài nguyên mà JobTracker tạo ra và giám sát chúng, di chuyển các quy trình xung quanh để có hiệu quả cao hơn. Tất cả các kết quả từ giai đoạn MapReduce sau đó được tổng hợp và ghi lại vào đĩa trong HDFS.
 
 ### Spark
-Spark hoạt động theo cách tương tự như Hadoop, ngoại trừ việc tính toán được thực hiện trong bộ nhớ và được lưu trữ ở đó cho đến khi người dùng chủ động duy trì chúng. Ban đầu, Spark đọc từ một tệp trên HDFS, S3 hoặc một filestore khác, thành một cơ chế được thiết lập có tên là SparkContext. Tại SparkContext, Spark tạo ra một cấu trúc gọi là RDD hoặc Bộ dữ liệu phân tán có khả năng phục hồi, đại diện cho một tập hợp các yếu tố bất biến có thể được vận hành song song.
+Spark hoạt động theo cách tương tự như Hadoop, ngoại trừ việc tính toán được thực hiện trong bộ nhớ và được lưu trữ ở đó cho đến khi người dùng chủ động duy trì chúng. Ban đầu, Spark đọc từ một tệp trên HDFS, S3 hoặc một filestore khác, thành một cơ chế được thiết lập có tên là SparkContext. Tại SparkContext, Spark tạo ra một cấu trúc gọi là RDD hoặc   Resilient Distributed.
 
 Khi RDD và các hành động liên quan đang được tạo, Spark cũng tạo ra một DAG, hoặc đồ thị theo chu kỳ có hướng, để trực quan hóa thứ tự các hoạt động và mối quan hệ giữa các hoạt động trong DAG. Mỗi DAG có các giai đoạn và các bước; theo cách này, nó tương tự như một kế hoạch giải thích trong SQL.  
 
-Bạn có thể thực hiện các phép biến đổi, các bước trung gian, hành động hoặc các bước cuối cùng trên RDD. Kết quả của một chuyển đổi đã cho đi vào DAG nhưng không tồn tại trên đĩa, nhưng kết quả của một hành động vẫn tồn tại tất cả dữ liệu trong bộ nhớ vào đĩa.
+Ta có thể thực hiện các phép biến đổi, các bước trung gian, hành động hoặc các bước cuối cùng trên RDD. Kết quả của một chuyển đổi đã cho đi vào DAG nhưng không tồn tại trên đĩa, nhưng kết quả của một hành động vẫn tồn tại tất cả dữ liệu trong bộ nhớ vào đĩa.
 
 Một bản tóm tắt mới trong Spark là DataFrames, được phát triển trong Spark 2.0 như một giao diện đồng hành với RDD. Hai cái này cực kỳ giống nhau, nhưng DataFrames sắp xếp dữ liệu thành các cột được đặt tên, tương tự như các gói gấu trúc hoặc R của Python. Điều này làm cho chúng thân thiện với người dùng hơn RDD, vốn không có bộ tham chiếu tiêu đề cấp cột tương tự. SparkQuery cũng cho phép người dùng truy vấn DataFrames giống như các bảng SQL trong các kho dữ liệu quan hệ.  
 
@@ -76,3 +76,5 @@ Vậy là ở mặt bảo mật thì Spark kém bảo mật hơn Hadoop. Nếu c
 [1] <a href="https://viblo.asia/p/hadoop-va-spark-big-data-framework-nao-tot-nhat-cho-ban-4dbZNqRqKYM">Hadoop và Spark Big data framework nào tốt nhất cho bạn</a>
 </br>
 [2] <a href="https://cloudfun.vn/threads/phan-biet-apache-hadoop-va-apache-spark.94/">Phân biệt Apache Hadoop và Apache Spark</a>
+</br>
+[3] <a hrè="https://helpex.vn/article/hadoop-so-voi-spark-so-sanh-truc-tiep-5c6b1c03ae03f628d053bf1a">Hadoop so với Spark: So sánh trực tiếp</a>
