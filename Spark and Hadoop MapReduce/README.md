@@ -4,6 +4,14 @@ Apache Hadoop và Apache Spark đều là các Big Data Framework - chúng cung 
 
 <img src='https://www.scnsoft.com/blog-pictures/business-intelligence/spark-vs-hadoop.png'>
 
+Các mục:
+* Apache Spark
+* Apache Hadoop
+* MapReduce
+* Kiến trúc
+* Hiệu suất
+* Bảo mật
+
 ## Apache Spark
 Apache Spark là một cụm framework điện toán nhanh, được thiết kế để tính toán nhanh trong xử lý dữ liệu quy mô lớn. Apache Spark là một công cụ xử lý phân tán (distributed processing engine) nhưng nó không đi kèm với trình quản lý tài nguyên cụm (inbuilt cluster resource manager) và hệ thống lưu trữ phân tán sẵn có (distributed storage system) mà phải cắm vào một trình quản lý cụm và hệ thống lưu trữ.
 
@@ -56,3 +64,14 @@ Sở dĩ Spark nhanh là vì nó xử lý mọi thứ ở RAM. Nhờ xử lý �
 Tuy nhiên, khi Spark làm việc cùng các dịch vụ chia sẻ khác chạy trên YARN thì hiệu năng có thể giảm xuống. Điều đó có thể dẫn đến rò rỉ bộ nhớ trên RAM. Hadoop thì khác, nó dễ dàng xử lý vấn đề này. Nếu người dùng có khuynh hướng xử lý hàng loạt (batch process) thì Hadoop lại hiệu quả hơn Spark.
 
 Tóm lại ở yếu tố hiệu năng, Spark và Hadoop có cách xử lý dữ liệu khác nhau. Việc lựa chọn framework nào phụ thuộc yêu cầu cụ thể từng dự án.
+
+## Bảo mật
+Bảo mật của Spark đang được phát triển, hiện tại nó chỉ hỗ trợ xác thực mật khẩu (password authentication). Ngay cả trang web chính thức của Apache Spark cũng tuyên bố rằng, "Có rất nhiều loại mối quan tâm bảo mật khác nhau. Spark không nhất thiết phải bảo vệ chống lại tất cả mọi thứ".
+
+Mặt khác, Hadoop trang bị toàn bộ các mức độ bảo mật như Hadoop Authentication, Hadoop Authorization, Hadoop Auditing, and Hadoop Encryption. Tất cả các tính năng này liên kết với các dự án Hadoop bảo mật như Knox Gateway và Sentry.
+
+Vậy là ở mặt bảo mật thì Spark kém bảo mật hơn Hadoop. Nếu có thể tích hợp Spark với Hadoop thì Spark có thể "mượn" các tính năng bảo mật của Hadoop.
+
+# Reference
+[1] <a href="https://viblo.asia/p/hadoop-va-spark-big-data-framework-nao-tot-nhat-cho-ban-4dbZNqRqKYM">Hadoop và Spark Big data framework nào tốt nhất cho bạn</a>
+[2] <a href="https://cloudfun.vn/threads/phan-biet-apache-hadoop-va-apache-spark.94/">Phân biệt Apache Hadoop và Apache Spark</a>
