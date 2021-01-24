@@ -77,4 +77,4 @@ Vậy là ở mặt bảo mật thì Spark kém bảo mật hơn Hadoop. Nếu c
 </br>
 [2] <a href="https://cloudfun.vn/threads/phan-biet-apache-hadoop-va-apache-spark.94/">Phân biệt Apache Hadoop và Apache Spark</a>
 </br>
-[3] <a hrè="https://helpex.vn/article/hadoop-so-voi-spark-so-sanh-truc-tiep-5c6b1c03ae03f628d053bf1a">Hadoop so với Spark: So sánh trực tiếp</a>
+[3] <a href="https://helpex.vn/article/hadoop-so-voi-spark-so-sanh-truc-tiep-5c6b1c03ae03f628d053bf1a">Hadoop so với Spark: So sánh trực tiếp</a>
