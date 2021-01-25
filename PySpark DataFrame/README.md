@@ -1,3 +1,4 @@
+<h1> PySpark DataFrame Tutorial: Introduction to DataFrames </h1>
 <div class="content-html"><p pid="2">DataFrames is a buzzword in the industry nowadays. People tend to use it with popular languages used for Data Analysis like Python, Scala, and R. So, why is it that everyone is using it so much? Let's take a look at this with our PySpark Dataframe tutorial. In this post, I'll be covering the following topics:</p>
 <ul>
  <li><a href="https://www.edureka.co/blog/pyspark-dataframe-tutorial/#what" target="_blank">What are DataFrames?</a></li>
