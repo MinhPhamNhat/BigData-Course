@@ -187,4 +187,5 @@ None
 ```
 # Tài liệu tham khảo
 <a href="https://blog.vietnamlab.vn/xu-ly-du-lieu-voi-spark-dataframe/">[1] Xử lý dữ liệu với Spark DataFrame </a>
+<br>
 <a href="https://www.tutorialspoint.com/spark_sql/spark_sql_dataframes.htm">[2] Spark SQL - DataFrame</a>
