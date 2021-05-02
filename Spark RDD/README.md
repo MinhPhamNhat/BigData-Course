@@ -97,3 +97,9 @@ Là các đối tượng JVM trong bộ nhớ, RDD liên quan đến chi phí Th
 ## Giới hạn lưu trữ
 RDDs suy giảm khi không có đủ bộ nhớ để lưu trữ chúng.  Người ta cũng có thể lưu trữ partition của RDD đó trên đĩa do không đủ với RAM.  Do đó, nó sẽ cung cấp hiệu suất tương tự như các hệ thống song song dữ liệu.
 
+# Tài liệu tham khảo
+<a href="https://www.facebook.com/notes/c%E1%BB%99ng-%C4%91%E1%BB%93ng-big-data-vi%E1%BB%87t-nam/apache-spark-fundamentals-ph%E1%BA%A7n-2-spark-core-v%C3%A0-rdd/514714606074061/">[1] Apache Spark Fundamentals - Phần 2: Spark Core và RDD</a>
+<br>
+<a href="https://data-flair.training/blogs/spark-rdd-tutorial/">[2] Spark RDD – Introduction, Features & Operations of RDD</a>
+<br>
+<a href="https://laptrinh.vn/books/apache-spark/page/apache-spark-rdd#:~:text=Resilient%20Distributed%20Datasets%20(RDD)%20l%C3%A0,t%C3%A1n%20c%E1%BB%A7a%20m%E1%BB%99t%20%C4%91%E1%BB%91i%20t%C6%B0%E1%BB%A3ng.&text=RDDs%20c%C3%B3%20th%E1%BB%83%20ch%E1%BB%A9a%20b%E1%BA%A5t,do%20ng%C6%B0%E1%BB%9Di%20d%C3%B9ng%20%C4%91%E1%BB%8Bnh%20ngh%C4%A9a.">[3] Apache Spark RDD</a>
