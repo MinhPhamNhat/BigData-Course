@@ -6,4 +6,12 @@ Do vậy, khai thác Machine Learning đối với Apache Spark là rất tiềm
 Để trực quan, ta sẽ sử dụng dataset Banking Marketing và thực hiện một model Machine Learning để dự đoán trong tập dữ liệu này.
 
 Tập dữ liệu được tải trên <a href="https://www.kaggle.com/rouseguy/bankbalanced/data">Kaggle</a> và sử dụng Logistic Regression trong học máy để dự đoán. 
+
 ## Khai phá dữ liệu
+
+```
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.appName('ML').getOrCreate()
+df = spark.read.csv('bank.csv', header = True, inferSchema = True)
+df.printSchema()
+```
