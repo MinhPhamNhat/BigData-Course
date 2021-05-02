@@ -112,4 +112,9 @@ Sẽ có khoảng 4,74% cặp tài liệu với sự giống nhau là 30% cuối
 <br>
 <p>Vì vậy, chúng ta có thể thấy rằng chúng ta có một số dương tính giả và một số âm tính giả. Tỷ lệ này sẽ thay đổi theo sự lựa chọn b và r. (Nếu chúng ta chỉ có 10 dải trong 10 hàng, số lượng false positives sẽ giảm xuống, nhưng số lượng false negatives sẽ tăng lên).</p> 
 
+# Tài liệu tham khảo
+1.	http://infolab.stanford.edu/~ullman/mmds/ch3.pdf 
+2.	https://web.stanford.edu/class/cs246/slides/04-lsh_theory.pdf
+3.	https://web.stanford.edu/class/cs246/slides/03-lsh.pdf
+4.	https://medium.com/engineering-brainly/locality-sensitive-hashing-explained-304eb39291e4
 
