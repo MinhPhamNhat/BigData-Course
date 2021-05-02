@@ -171,7 +171,7 @@ from pyspark.ml.evaluation import MulticlassClassificationEvaluator
 multi_evaluator = MulticlassClassificationEvaluator(labelCol = 'deposit_indexer', metricName = 'accuracy')
 print('Logistic Regression Accuracy:', multi_evaluator.evaluate(y_pred))
 
-Logistic Regression Accuracy: 0.782549109182275
+Logistic Regression Accuracy: 0.8035055350553506
 ```
 Ta xác định chất lượng model. Model khá tốt, nếu ta thực hiện tiền xử lý tốt hơn có lẽ model sẽ được cải thiện.
 ```
