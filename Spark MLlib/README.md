@@ -18,7 +18,7 @@ spark = SparkSession.builder.appName('ML').getOrCreate()
 df = spark.read.csv('bank.csv', header = True, inferSchema = True)
 df.printSchema()
 ```
-
+Output:
 ```
 root
  |-- age: integer (nullable = true)
