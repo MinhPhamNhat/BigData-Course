@@ -75,6 +75,16 @@ Nếu ta sử dụng sqlContext.sql('query SQL') thì giá trị trả về cũn
 Có 1 lưu ý là: Ta cũng có thể viết subquery nhưng subquery cần được gán Alias, nếu không sẽ bị (Syntax error).
 Ta thử tìm các dòng có cột campaignID có giá trị là Campaign047 
 
+<br>
+```
+new_df.registerTempTable("whole_log_table")
+
+print (sqlContext.sql(" SELECT * FROM whole_log_table where campaignID == 'Campaign047' ").count())
+```
+Output:
+```
+18081
+```
 Ta in thử 5 dòng đầu trong đó
 ```
 print(sqlContext.sql(" SELECT * FROM whole_log_table where campaignID == 'Campaign047' ").show(5))
