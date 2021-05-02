@@ -11,3 +11,6 @@ val conf = new SparkConf()
  .setAppName("Spark Practice")
 val sc = new SparkContext(conf)
 ```
+
+# Tài liệu tham khảo
+[1]  <a href="https://spark.apache.org/docs/2.1.0/configuration.html#spark-configuration">Spark Configuration</a>
