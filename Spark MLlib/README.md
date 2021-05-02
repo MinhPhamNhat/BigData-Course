@@ -7,6 +7,8 @@ Do vậy, khai thác Machine Learning đối với Apache Spark là rất tiềm
 
 Tập dữ liệu được tải trên <a href="https://www.kaggle.com/rouseguy/bankbalanced/data">Kaggle</a> và sử dụng Logistic Regression trong học máy để dự đoán. 
 
+<img src="https://miro.medium.com/max/1250/1*J_4joYwf_HHMbBt8s1Kuqw.jpeg">
+
 ## Xử lý dữ liệu
 
 Tập dữ liệu liên quan đến các chiến dịch tiếp thị trực tiếp (gọi điện thoại) của một tổ chức ngân hàng Bồ Đào Nha. Mục tiêu phân loại là để dự đoán liệu khách hàng có đăng ký (Có / Không) đối với một khoản tiền gửi có kỳ hạn hay không
