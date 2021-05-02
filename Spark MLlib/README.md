@@ -9,7 +9,7 @@ Tập dữ liệu được tải trên <a href="https://www.kaggle.com/rouseguy/
 
 <img src="https://miro.medium.com/max/1250/1*J_4joYwf_HHMbBt8s1Kuqw.jpeg">
 
-## Xử lý dữ liệu
+# Xử lý và chuẩn bị cho Model
 
 Tập dữ liệu liên quan đến các chiến dịch tiếp thị trực tiếp (gọi điện thoại) của một tổ chức ngân hàng Bồ Đào Nha. Mục tiêu phân loại là để dự đoán liệu khách hàng có đăng ký (Có / Không) đối với một khoản tiền gửi có kỳ hạn hay không
 
@@ -105,5 +105,11 @@ root
  |-- poutcome_indexer: double (nullable = false)
  |-- deposit_indexer: double (nullable = false)
 ```
-Tập dữ liệu bây giờ không còn kiễu dữ liệu String nữa
+Tập dữ liệu bây giờ không còn kiễu dữ liệu String nữa. Dữ liệu đã sẵn sàng để có thể train model. Tuy nhiên, PySpark cũng cấp VectorAssembler cho phép ta  kết hợp một danh sách các cột nhất định thành một cột vectơ duy nhất. Việc này rất hữu ích để kết hợp các tính năng thô và các tính năng được tạo bởi các cột đặc trưng khác nhau thành một vectơ đặc trưng duy nhất, để train các mô hình ML như hồi quy logistic và cây quyết định. VectorAssembler chấp nhận các kiểu cột đầu vào sau: tất cả các kiểu số, kiểu boolean và kiểu vectơ. Trong mỗi hàng, giá trị của các cột đầu vào sẽ được nối thành một vectơ theo thứ tự được chỉ định. 
+```
+from pyspark.ml.feature import VectorAssembler
 
+# Vector feature
+assembler = VectorAssembler(inputCols=feature_names, outputCol="features")
+transformed_data = assembler.transform(df)
+```
