@@ -196,4 +196,5 @@ only showing top 10 rows
 
 # Tài liệu tham khảo
 <a href="https://towardsdatascience.com/machine-learning-with-pyspark-and-mllib-solving-a-binary-classification-problem-96396065d2aa">[1] Machine Learning with PySpark and MLlib — Solving a Binary Classification Problem</a>
+<br>
 <a href="https://spark.apache.org/docs/latest/ml-features.html#vectorassembler">[2] VectorAssembler</a>
