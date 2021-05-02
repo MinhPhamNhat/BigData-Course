@@ -1,5 +1,8 @@
+
 # BigData-Course
-<p>Đây là repo để lưu lại quá trình học môn Bigdata</p>
+> Phạm Nhật Minh
+> 51800903
+<p>Đây là repo để lưu lại quá trình học môn Bigdata </p>
 <p>Repo gồm các mục:</p>
 1. <a href="https://github.com/MinhPhamNhat/BigData-Course/tree/main/Spark%20and%20Hadoop%20MapReduce">Spark and Hadoop MapReduce</a><br>
 2. <a href="https://github.com/MinhPhamNhat/BigData-Course/tree/main/Spark%20Properties">Spark Properties</a><br>
