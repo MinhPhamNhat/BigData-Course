@@ -1,6 +1,6 @@
 # Machine Learning với PySpark
 
-Apache Spark đã vầ đang là một nền tảng rất mạnh mẽ cho các dự án Big-Data do khả năng xử lý luồng thời gian thực, xử lý tương tác, xử lý đồ thị, xử lý trong bộ nhớ cũng như xử lý hàng loạt với tốc độ rất nhanh, dễ sử dụng và giao diện chuẩn.
+Apache Spark đã và đang là một nền tảng rất mạnh mẽ cho các dự án Big-Data do khả năng xử lý luồng thời gian thực, xử lý tương tác, xử lý đồ thị, xử lý trong bộ nhớ cũng như xử lý hàng loạt với tốc độ rất nhanh, dễ sử dụng và giao diện chuẩn.
 Do vậy, khai thác Machine Learning đối với Apache Spark là rất tiềm năng và PySpark cung cấp cho ta khả năng thực hiện việc đó một các dễ dàng qua các thư viện Sql và Ml.
 
 Để trực quan, ta sẽ sử dụng dataset Banking Marketing và thực hiện một model Machine Learning để dự đoán trong tập dữ liệu này.
@@ -143,3 +143,52 @@ transformed_data.select("features").show()
 only showing top 20 rows
 ```
 Bây giờ dữ liệu đã sẵn sàng để train Model. Ta sẽ sử dụng Logistic Regression đối với bài toán này.
+
+# Logistic Regression Model
+
+```
+# Train test split
+(training_data, test_data) = transformed_data.randomSplit([0.8,0.2])
+```
+Đầu tiên ta phải tách tập train và test. PySpark DataFrame cho phép ta tách DataFrame theo tỉ lệ ta mong muốn
+```
+from pyspark.ml.classification import LogisticRegression
+model = LogisticRegression(featuresCol = 'features',labelCol='deposit_indexer', maxIter=30)
+```
+Sao đó ta tạo model. Cột cần được train là features và cột target là deposit_indexer
+```
+# Fit model
+fit_model = model.fit(training_data)
+
+# Prediction
+y_pred = fit_model.transform(test_data)
+```
+Train model và đưa tập test vào để dự đoán
+```
+from pyspark.ml.evaluation import MulticlassClassificationEvaluator
+
+# Evaluate accuracy
+multi_evaluator = MulticlassClassificationEvaluator(labelCol = 'deposit_indexer', metricName = 'accuracy')
+print('Logistic Regression Accuracy:', multi_evaluator.evaluate(y_pred))
+
+Logistic Regression Accuracy: 0.782549109182275
+```
+Ta xác định chất lượng model. Model khá tốt, nếu ta thực hiện tiền xử lý tốt hơn có lẽ model sẽ được cải thiện.
+```
+y_pred.select("age","balance","deposit","rawPrediction", "probability", "prediction").show(10)
+
++---+-------+-------+--------------------+--------------------+----------+
+|age|balance|deposit|       rawPrediction|         probability|prediction|
++---+-------+-------+--------------------+--------------------+----------+
+| 18|      5|     no|[1.24031836691664...|[0.77561942577722...|       0.0|
+| 18|    108|    yes|[-0.8424151044749...|[0.30102637901402...|       1.0|
+| 18|    108|    yes|[0.93865241633341...|[0.71882737144269...|       0.0|
+| 18|    348|    yes|[-0.1202583591761...|[0.46997159090632...|       1.0|
+| 19|     55|     no|[-0.8383004794600...|[0.30189284335200...|       1.0|
+| 19|     60|     no|[0.53454555853161...|[0.63054266587903...|       0.0|
+| 19|    103|    yes|[1.12953722001224...|[0.75575348457604...|       0.0|
+| 19|    329|    yes|[-0.5368318763241...|[0.36892487585105...|       1.0|
+| 19|    372|    yes|[0.15061621411956...|[0.53758303202370...|       0.0|
+| 19|    394|    yes|[-0.6405631974937...|[0.34511923892910...|       1.0|
++---+-------+-------+------------
+```
