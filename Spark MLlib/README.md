@@ -9,9 +9,33 @@ Tập dữ liệu được tải trên <a href="https://www.kaggle.com/rouseguy/
 
 ## Khai phá dữ liệu
 
+Tập dữ liệu liên quan đến các chiến dịch tiếp thị trực tiếp (gọi điện thoại) của một tổ chức ngân hàng Bồ Đào Nha. Mục tiêu phân loại là để dự đoán liệu khách hàng có đăng ký (Có / Không) đối với một khoản tiền gửi có kỳ hạn hay không
+
+Ta sử dụng PySpark SQL để đọc dữ liệu và tạo một DataFrame tiện cho việc xử lý dữ liệu.
 ```
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName('ML').getOrCreate()
 df = spark.read.csv('bank.csv', header = True, inferSchema = True)
 df.printSchema()
+```
+
+```
+root
+ |-- age: integer (nullable = true)
+ |-- job: string (nullable = true)
+ |-- marital: string (nullable = true)
+ |-- education: string (nullable = true)
+ |-- default: string (nullable = true)
+ |-- balance: integer (nullable = true)
+ |-- housing: string (nullable = true)
+ |-- loan: string (nullable = true)
+ |-- contact: string (nullable = true)
+ |-- day: integer (nullable = true)
+ |-- month: string (nullable = true)
+ |-- duration: integer (nullable = true)
+ |-- campaign: integer (nullable = true)
+ |-- pdays: integer (nullable = true)
+ |-- previous: integer (nullable = true)
+ |-- poutcome: string (nullable = true)
+ |-- deposit: string (nullable = true)
 ```
