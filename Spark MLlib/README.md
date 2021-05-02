@@ -105,7 +105,7 @@ root
  |-- poutcome_indexer: double (nullable = false)
  |-- deposit_indexer: double (nullable = false)
 ```
-Tập dữ liệu bây giờ không còn kiễu dữ liệu String nữa. Dữ liệu đã sẵn sàng để có thể train model. Tuy nhiên, PySpark cũng cấp VectorAssembler cho phép ta  kết hợp một danh sách các cột nhất định thành một cột vectơ duy nhất. Việc này rất hữu ích để kết hợp các tính năng thô và các tính năng được tạo bởi các cột đặc trưng khác nhau thành một vectơ đặc trưng duy nhất, để train các mô hình ML như hồi quy logistic và cây quyết định. VectorAssembler chấp nhận các kiểu cột đầu vào sau: tất cả các kiểu số, kiểu boolean và kiểu vectơ. Trong mỗi hàng, giá trị của các cột đầu vào sẽ được nối thành một vectơ theo thứ tự được chỉ định. 
+Tập dữ liệu bây giờ không còn kiễu dữ liệu String nữa. Dữ liệu đã sẵn sàng để có thể train model. Tuy nhiên, PySpark cũng cấp VectorAssembler cho phép ta kết hợp một danh sách các cột nhất định thành một cột vectơ duy nhất. Việc này rất hữu ích để kết hợp các tính năng thô và các tính năng được tạo bởi các cột đặc trưng khác nhau thành một vectơ đặc trưng duy nhất, để train các mô hình ML như hồi quy logistic và cây quyết định. VectorAssembler chấp nhận các kiểu cột đầu vào sau: tất cả các kiểu số, kiểu boolean và kiểu vectơ. Trong mỗi hàng, giá trị của các cột đầu vào sẽ được nối thành một vectơ theo thứ tự được chỉ định. 
 ```
 from pyspark.ml.feature import VectorAssembler
 
@@ -113,3 +113,33 @@ from pyspark.ml.feature import VectorAssembler
 assembler = VectorAssembler(inputCols=feature_names, outputCol="features")
 transformed_data = assembler.transform(df)
 ```
+Sau khi VectorAssembler, các cột dữ liệu được kết hợp thành cột features sẽ là
+```
+transformed_data.select("features").show()
++--------------------+
+|            features|
++--------------------+
+|(16,[0,1,2,3,4,5,...|
+|(16,[0,1,2,3,4,5,...|
+|(16,[0,1,2,3,4,5,...|
+|(16,[0,1,2,3,4,5,...|
+|(16,[0,1,2,3,4,5,...|
+|[42.0,0.0,5.0,562...|
+|[56.0,830.0,6.0,1...|
+|[60.0,545.0,6.0,1...|
+|(16,[0,1,2,3,4,5,...|
+|[28.0,5090.0,6.0,...|
+|[38.0,100.0,7.0,7...|
+|(16,[0,1,2,3,4,5,...|
+|[29.0,199.0,7.0,1...|
+|[46.0,460.0,7.0,1...|
+|[31.0,703.0,8.0,9...|
+|[35.0,3837.0,8.0,...|
+|[32.0,611.0,8.0,5...|
+|(16,[0,1,2,3,4,5,...|
+|(16,[0,1,2,3,4,5,...|
+|[49.0,168.0,8.0,5...|
++--------------------+
+only showing top 20 rows
+```
+Bây giờ dữ liệu đã sẵn sàng để train Model. Ta sẽ sử dụng Logistic Regression đối với bài toán này.
