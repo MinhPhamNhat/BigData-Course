@@ -192,6 +192,7 @@ y_pred.select("age","balance","deposit","rawPrediction", "probability", "predict
 | 19|    394|    yes|[-0.6405631974937...|[0.34511923892910...|       1.0|
 +---+-------+-------+--------------------+--------------------+----------+
 only showing top 10 rows
+```
 
 # Tài liệu tham khảo
 <a href="https://towardsdatascience.com/machine-learning-with-pyspark-and-mllib-solving-a-binary-classification-problem-96396065d2aa">[1] Machine Learning with PySpark and MLlib — Solving a Binary Classification Problem</a>
