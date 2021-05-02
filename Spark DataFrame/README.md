@@ -70,21 +70,10 @@ None
 ```
 
 ## Query bằng SQL
-Bằng cách sử dụng registerTempTable, ta sẽ có một table được tham chiếu đến Dataframe đó, ta có thể sử dụng tên table này để viết query SQL. Nếu ta sử dụng sqlContext.sql('query SQL') thì giá trị trả về cũng là Dataframe.
+Bằng cách sử dụng registerTempTable, ta sẽ có một table được tham chiếu đến Dataframe đó, ta có thể sử dụng tên table này để viết query SQL. 
+Nếu ta sử dụng sqlContext.sql('query SQL') thì giá trị trả về cũng là Dataframe.
 Có 1 lưu ý là: Ta cũng có thể viết subquery nhưng subquery cần được gán Alias, nếu không sẽ bị (Syntax error).
 Ta thử tìm các dòng có cột campaignID có giá trị là Campaign047 
- ```
-#SQL query
-
-new_df.registerTempTable("whole_log_table")
-
-# Query
-print (sqlContext.sql(" SELECT * FROM whole_log_table where campaignID == 'Campaign047' ").count())
-```
-Output:
-```
-18081
-```
 
 Ta in thử 5 dòng đầu trong đó
 ```
