@@ -46,6 +46,7 @@ Tìm một hàm băm h (·) sao cho:
 - nếu Sim(C1, C2) là cao, thì với xác suất cao. h(C1) = h(C2)
 - nếu sim(C1, C2) thấp, thì với xác suất cao. h(C1) ≠ h(C2)
 <br>
+
 > Hàm băm phụ thuộc vào chỉ số tương tự.
 > Hàm băm thích hợp với Jaccard similarity là Min-hashing. 
 
