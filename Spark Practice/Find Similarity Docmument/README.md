@@ -1,5 +1,5 @@
 # Tổng quan – Finding similar documents (Tìm văn bản tương tự)
-Vấn đề cần giải  quyết: Lọc các bản tin tương tự từ tập hợp các bản tin trên các web tin tức, sau đó khi đưa một bản tin vào thì sẽ hiển thị các bản tin tương tự.
+<p>Vấn đề cần giải  quyết: Lọc các bản tin tương tự từ tập hợp các bản tin trên các web tin tức, sau đó khi đưa một bản tin vào thì sẽ hiển thị các bản tin tương tự.</p>
 Các bước chính khi thực hiện thuật toán LSH:
 1.	Shingling
 2.	Min hashing
@@ -110,6 +110,6 @@ Ngoài ra, ta sẽ có 2 bộ tài liệu C và D có độ giống nhau 30% kh�
 Sẽ có khoảng 4,74% cặp tài liệu với sự giống nhau là 30% cuối cùng trở thành cặp candidate.
 
 <br>
-Vì vậy, chúng ta có thể thấy rằng chúng ta có một số dương tính giả và một số âm tính giả. Tỷ lệ này sẽ thay đổi theo sự lựa chọn b và r. (Nếu chúng ta chỉ có 10 dải trong 10 hàng, số lượng false positives sẽ giảm xuống, nhưng số lượng false negatives sẽ tăng lên). 
+<p>Vì vậy, chúng ta có thể thấy rằng chúng ta có một số dương tính giả và một số âm tính giả. Tỷ lệ này sẽ thay đổi theo sự lựa chọn b và r. (Nếu chúng ta chỉ có 10 dải trong 10 hàng, số lượng false positives sẽ giảm xuống, nhưng số lượng false negatives sẽ tăng lên).</p> 
 
 
