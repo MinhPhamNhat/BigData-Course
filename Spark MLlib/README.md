@@ -7,7 +7,7 @@ Do vậy, khai thác Machine Learning đối với Apache Spark là rất tiềm
 
 Tập dữ liệu được tải trên <a href="https://www.kaggle.com/rouseguy/bankbalanced/data">Kaggle</a> và sử dụng Logistic Regression trong học máy để dự đoán. 
 
-## Khai phá dữ liệu
+## Xử lý dữ liệu
 
 Tập dữ liệu liên quan đến các chiến dịch tiếp thị trực tiếp (gọi điện thoại) của một tổ chức ngân hàng Bồ Đào Nha. Mục tiêu phân loại là để dự đoán liệu khách hàng có đăng ký (Có / Không) đối với một khoản tiền gửi có kỳ hạn hay không
 
@@ -80,4 +80,28 @@ for i in string_features:
   indexer = StringIndexer()
   indexer.setInputCol(i).setOutputCol(i+"_indexer")
   df = indexer.fit(df).transform(df)
+df = df.drop(*string_features)
 ```
+```
+df.printSchema()
+root
+ |-- age: integer (nullable = true)
+ |-- balance: integer (nullable = true)
+ |-- day: integer (nullable = true)
+ |-- duration: integer (nullable = true)
+ |-- campaign: integer (nullable = true)
+ |-- pdays: integer (nullable = true)
+ |-- previous: integer (nullable = true)
+ |-- job_indexer: double (nullable = false)
+ |-- marital_indexer: double (nullable = false)
+ |-- education_indexer: double (nullable = false)
+ |-- default_indexer: double (nullable = false)
+ |-- housing_indexer: double (nullable = false)
+ |-- loan_indexer: double (nullable = false)
+ |-- contact_indexer: double (nullable = false)
+ |-- month_indexer: double (nullable = false)
+ |-- poutcome_indexer: double (nullable = false)
+ |-- deposit_indexer: double (nullable = false)
+```
+Tập dữ liệu bây giờ không còn kiễu dữ liệu String nữa
+
